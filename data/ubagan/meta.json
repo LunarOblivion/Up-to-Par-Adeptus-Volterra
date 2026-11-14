@@ -1,0 +1,10 @@
+{
+  "id": "ubagan",
+  "name": "Field near Ubagan, Kostanay Region",
+  "lat": 52.509,
+  "lon": 64.41,
+  "fetched_on": "2026-11-14",
+  "power_days": 16744,
+  "elevation_m": 168.2,
+  "elevation_source": "NASA POWER grid point (geometry.coordinates[2]), requested 2026-11-14"
+}

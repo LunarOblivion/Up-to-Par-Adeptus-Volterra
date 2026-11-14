@@ -1,0 +1,73 @@
+{
+  "_ai_assistance": "drafted with an AI model (Claude, Anthropic) and reviewed by the team",
+  "_note": "Field centres picked by eye on Google Maps satellite imagery on 14 Nov 2026. Each point is at least 500 m from the field edge. MODIS pixels are 250 m. The page shows the fields in this order. The last five fields come from the Up To Para version (LunarOblivion).",
+  "_optional_fields": {
+    "sow_dates": "sowing date per crop as MM-DD, e.g. {\"wheat\": \"05-01\", \"barley\": \"05-05\"}; crops not listed keep the dates in model/crops.json",
+    "elevation_m": "elevation in metres for the air pressure in the evapotranspiration formula; when missing, the elevation of the NASA POWER grid point is used"
+  },
+  "_next_point_template": {
+    "id": "montana",
+    "name": "Field in the wheat-fallow area of north-central Montana, USA",
+    "lat": null,
+    "lon": null,
+    "sow_dates": null,
+    "TODO": "team: field centre (lat, lon) picked like the points below; sow_dates from a cited source (e.g. the 'Usual Planting and Harvesting Dates' table of the USDA NASS Montana Annual Statistical Bulletin). Then move this object into 'points', run python data_fetch/fetch_data.py --only montana and python run_all.py."
+  },
+  "points": [
+    {
+      "id": "kostanay",
+      "name": "Field near the M-36 road, Kostanay Region",
+      "lat": 53.574933,
+      "lon": 62.929011
+    },
+    {
+      "id": "shortandy",
+      "name": "Field north-east of Shortandy, Akmola Region (trial comparison point)",
+      "lat": 51.746153,
+      "lon": 71.1727
+    },
+    {
+      "id": "north_kz",
+      "name": "Field near Molodezhnoye, North Kazakhstan Region",
+      "lat": 54.545519,
+      "lon": 70.250983
+    },
+    {
+      "id": "taiynsha",
+      "name": "Field near Taiynsha, North Kazakhstan Region",
+      "lat": 53.840534,
+      "lon": 69.581117,
+      "ndvi_source": "NASA GIBS MODIS_Terra_L3_NDVI_16Day, colours decoded (data_fetch/gibs_to_csv.py); no quality band"
+    },
+    {
+      "id": "esil",
+      "name": "Field near Esil, Akmola Region",
+      "lat": 51.9434,
+      "lon": 66.6388,
+      "ndvi_source": "NASA GIBS MODIS_Terra_L3_NDVI_16Day, colours decoded (data_fetch/gibs_to_csv.py); no quality band",
+      "ornl_check_date": "2026-11-14",
+      "_ornl_check": "Direct check of this field's NDVI against ORNL DAAC TESViS not possible: HTTP 502, later no answer within 60 s"
+    },
+    {
+      "id": "ubagan",
+      "name": "Field near Ubagan, Kostanay Region",
+      "lat": 52.509,
+      "lon": 64.41,
+      "ndvi_source": "NASA GIBS MODIS_Terra_L3_NDVI_16Day, colours decoded (data_fetch/gibs_to_csv.py); no quality band"
+    },
+    {
+      "id": "pavlodar",
+      "name": "Field near Voznesenka, Pavlodar Region",
+      "lat": 52.788,
+      "lon": 77.9154,
+      "ndvi_source": "NASA GIBS MODIS_Terra_L3_NDVI_16Day, colours decoded (data_fetch/gibs_to_csv.py); no quality band"
+    },
+    {
+      "id": "osakarovka",
+      "name": "Field near Osakarovka, Karaganda Region",
+      "lat": 50.641,
+      "lon": 72.6005,
+      "ndvi_source": "NASA GIBS MODIS_Terra_L3_NDVI_16Day, colours decoded (data_fetch/gibs_to_csv.py); no quality band"
+    }
+  ]
+}

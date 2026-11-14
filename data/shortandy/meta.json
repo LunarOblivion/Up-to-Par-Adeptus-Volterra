@@ -1,0 +1,11 @@
+{
+  "id": "shortandy",
+  "name": "Field north-east of Shortandy, Akmola Region (trial comparison point)",
+  "lat": 51.746153,
+  "lon": 71.1727,
+  "fetched_on": "2026-11-14",
+  "power_days": 16744,
+  "modis_composites": 614,
+  "elevation_m": 367.5,
+  "elevation_source": "NASA POWER grid point (geometry.coordinates[2] of the API responses downloaded on 2026-11-14)"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "north_kz",
+  "name": "Field near Molodezhnoye, North Kazakhstan Region",
+  "lat": 54.545519,
+  "lon": 70.250983,
+  "fetched_on": "2026-11-14",
+  "power_days": 16744,
+  "modis_composites": 614,
+  "elevation_m": 129.2,
+  "elevation_source": "NASA POWER grid point (geometry.coordinates[2] of the API responses downloaded on 2026-11-14)"
+}

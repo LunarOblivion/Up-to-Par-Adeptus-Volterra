@@ -1,0 +1,10 @@
+{
+  "id": "osakarovka",
+  "name": "Field near Osakarovka, Karaganda Region",
+  "lat": 50.641,
+  "lon": 72.6005,
+  "fetched_on": "2026-11-14",
+  "power_days": 16744,
+  "elevation_m": 505.6,
+  "elevation_source": "NASA POWER grid point (geometry.coordinates[2]), requested 2026-11-14"
+}

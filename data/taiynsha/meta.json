@@ -1,0 +1,10 @@
+{
+  "id": "taiynsha",
+  "name": "Field near Taiynsha, North Kazakhstan Region",
+  "lat": 53.840534,
+  "lon": 69.581117,
+  "fetched_on": "2026-11-14",
+  "power_days": 16744,
+  "elevation_m": 149.3,
+  "elevation_source": "NASA POWER grid point (geometry.coordinates[2]), requested 2026-11-14"
+}

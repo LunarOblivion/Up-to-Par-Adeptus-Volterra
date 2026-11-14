@@ -1,0 +1,300 @@
+{
+  "_ai_assistance": "drafted with an AI model (Claude, Anthropic) and reviewed by the team",
+  "_about": "Crop parameters for the water balance. 'checked' lists the values read from the cited source, with the source key and the value as printed there; 'assumed' lists the values that are assumptions of the team, with the reason. Everything in 'assumed' is open for local agronomic advice.",
+  "_sources": {
+    "FAO56_T17": "FAO Irrigation and Drainage Paper 56, Table 17, basal crop coefficients Kcb. https://www.fao.org/4/x0490e/x0490e0c.htm",
+    "FAO56_T22": "FAO Irrigation and Drainage Paper 56, Table 22, rooting depth Zr and depletion fraction p. https://www.fao.org/4/X0490e/x0490e0e.htm",
+    "FAO56_T11": "FAO Irrigation and Drainage Paper 56, Table 11, lengths of crop development stages. https://www.fao.org/4/X0490e/x0490e0b.htm",
+    "MB_DAYS": "Manitoba Agriculture, Number of Days Required for a Crop to Reach Maturity (used as a cold-continental analogue for season length). https://prodtracs.gov.mb.ca/agriculture/crops/crop-management/pubs/days-maturity.pdf",
+    "FAO56_T12": "FAO Irrigation and Drainage Paper 56, Table 12, single crop coefficients and mean maximum plant heights h. https://www.fao.org/4/X0490e/x0490e0b.htm",
+    "FAO33_KY": "FAO Irrigation and Drainage Paper 33 (Doorenbos and Kassam, 1979), seasonal yield response factors Ky, as reproduced in FAO Irrigation and Drainage Paper 66, Chapter 2, Table 1. https://fao.org/4/i2800e/i2800e02.pdf"
+  },
+  "crops": {
+    "wheat": {
+      "name": "Spring wheat",
+      "sow": "05-20",
+      "stages_days": [
+        15,
+        25,
+        40,
+        20
+      ],
+      "kcb": [
+        0.15,
+        1.1,
+        0.25
+      ],
+      "root_depth_m": 1.2,
+      "p": 0.55,
+      "height_m": 1.0,
+      "legume": false,
+      "checked": [
+        "kcb (FAO56_T17: 0.15, 1.10, end 0.15-0.3)",
+        "root_depth_m (FAO56_T22: 1.0-1.5)",
+        "p (FAO56_T22)",
+        "season length 90-100 days (MB_DAYS)",
+        "height_m (FAO56_T12: 1)",
+        "ky (FAO33_KY: spring wheat 1.15)"
+      ],
+      "assumed": [
+        "sow date",
+        "split of the season into stages"
+      ],
+      "ky": 1.15
+    },
+    "barley": {
+      "name": "Spring barley",
+      "sow": "05-25",
+      "stages_days": [
+        15,
+        20,
+        35,
+        20
+      ],
+      "kcb": [
+        0.15,
+        1.1,
+        0.15
+      ],
+      "root_depth_m": 1.2,
+      "p": 0.55,
+      "height_m": 1.0,
+      "legume": false,
+      "checked": [
+        "kcb (FAO56_T17)",
+        "root_depth_m (FAO56_T22: 1.0-1.5)",
+        "p (FAO56_T22)",
+        "season length 60-90 days (MB_DAYS)",
+        "height_m (FAO56_T12: 1)"
+      ],
+      "assumed": [
+        "sow date",
+        "split of the season into stages",
+        "ky (assumed equal to spring wheat; barley is not in the FAO33 excerpt we could read)"
+      ],
+      "ky": 1.15
+    },
+    "oats": {
+      "name": "Oats",
+      "sow": "05-20",
+      "stages_days": [
+        15,
+        20,
+        35,
+        18
+      ],
+      "kcb": [
+        0.15,
+        1.1,
+        0.15
+      ],
+      "root_depth_m": 1.2,
+      "p": 0.55,
+      "height_m": 1.0,
+      "legume": false,
+      "checked": [
+        "kcb (FAO56_T17)",
+        "root_depth_m (FAO56_T22: 1.0-1.5)",
+        "p (FAO56_T22)",
+        "season length 85-88 days (MB_DAYS)",
+        "height_m (FAO56_T12: 1)"
+      ],
+      "assumed": [
+        "sow date",
+        "split of the season into stages",
+        "ky (assumed equal to spring wheat; oats are not in the FAO33 excerpt we could read)"
+      ],
+      "ky": 1.15
+    },
+    "pea": {
+      "name": "Field pea (dry)",
+      "sow": "05-12",
+      "stages_days": [
+        15,
+        25,
+        35,
+        15
+      ],
+      "kcb": [
+        0.15,
+        1.1,
+        0.2
+      ],
+      "root_depth_m": 0.8,
+      "p": 0.4,
+      "height_m": 0.5,
+      "legume": true,
+      "checked": [
+        "kcb (FAO56_T17, peas dry/seed: 0.15, 1.10, 0.20)",
+        "stages_days (FAO56_T11: peas, May, Europe 15/25/35/15)",
+        "root_depth_m (FAO56_T22, peas dry/seed: Zr 0.6-1.0 m; 0.8 used)",
+        "p (FAO56_T22, peas dry/seed: 0.40)",
+        "height_m (FAO56_T12, peas: 0.5)",
+        "season length 90-100 days (MB_DAYS)",
+        "ky (FAO33_KY: peas 1.15)"
+      ],
+      "assumed": [
+        "sow date"
+      ],
+      "ky": 1.15
+    },
+    "lentil": {
+      "name": "Lentil",
+      "sow": "05-12",
+      "stages_days": [
+        15,
+        20,
+        35,
+        25
+      ],
+      "kcb": [
+        0.15,
+        1.05,
+        0.2
+      ],
+      "root_depth_m": 0.7,
+      "p": 0.5,
+      "height_m": 0.5,
+      "legume": true,
+      "checked": [
+        "kcb (FAO56_T17)",
+        "root_depth_m (FAO56_T22: 0.6-0.8)",
+        "p (FAO56_T22)",
+        "season length 85-100 days (MB_DAYS)",
+        "height_m (FAO56_T12, lentil: 0.5)"
+      ],
+      "assumed": [
+        "sow date",
+        "split of the season into stages (FAO56_T11 gives 20/30/60/40 = 150 days for lentil planted in April in Europe; the 95-day season follows MB_DAYS)",
+        "ky (assumed equal to peas; lentil is not in the FAO33 excerpt we could read)"
+      ],
+      "ky": 1.15
+    },
+    "flax": {
+      "name": "Flax (oilseed)",
+      "sow": "05-18",
+      "stages_days": [
+        15,
+        25,
+        35,
+        25
+      ],
+      "kcb": [
+        0.15,
+        1.05,
+        0.2
+      ],
+      "root_depth_m": 1.2,
+      "p": 0.5,
+      "height_m": 1.2,
+      "legume": false,
+      "checked": [
+        "kcb (FAO56_T17, flax: 0.15, 1.05, 0.20)",
+        "root_depth_m (FAO56_T22, flax: Zr 1.0-1.5 m; 1.2 used)",
+        "p (FAO56_T22, flax: 0.50)",
+        "height_m (FAO56_T12, flax: 1.2)",
+        "season length 85-100 days (MB_DAYS)"
+      ],
+      "assumed": [
+        "sow date",
+        "split of the season into stages (FAO56_T11 gives 25/35/50/40 = 150 days for flax planted in April in Europe; the 100-day oilseed season follows MB_DAYS)",
+        "FAO-56 lists flax under fibre crops; its values are used here for oilseed flax",
+        "ky (assumed; flax is not in the FAO33 excerpt we could read)"
+      ],
+      "ky": 1.0
+    }
+  },
+  "rotations": {
+    "A_current": {
+      "label": "Current: fallow - wheat - wheat - barley",
+      "short": "fallow in the rotation",
+      "sequence": [
+        "fallow",
+        "wheat",
+        "wheat",
+        "barley"
+      ]
+    },
+    "B_pea": {
+      "label": "Pea instead of fallow: pea - wheat - wheat - barley",
+      "short": "pea instead of fallow",
+      "sequence": [
+        "pea",
+        "wheat",
+        "wheat",
+        "barley"
+      ]
+    },
+    "C_oats": {
+      "label": "Oats instead of fallow: oats - wheat - wheat - barley",
+      "short": "oats instead of fallow",
+      "sequence": [
+        "oats",
+        "wheat",
+        "wheat",
+        "barley"
+      ]
+    },
+    "D_diverse": {
+      "label": "Diverse: lentil - wheat - flax - barley",
+      "short": "lentil - wheat - flax - barley",
+      "sequence": [
+        "lentil",
+        "wheat",
+        "flax",
+        "barley"
+      ]
+    }
+  },
+  "_checked_on": "FAO56_T11, T12, T17 and T22 re-read at the URLs above on 14 Nov 2026 for pea, flax, lentil and the cereals (task P1-1); no value had to change.",
+  "economics": {
+    "_about": "Starting values for the money view. The farmer is expected to replace them. Prices are market quotes from the sources; average yields and costs are illustrative examples, not data.",
+    "_sources": {
+      "PRODCORP_2026": "Prodcorporation purchase price for 3rd-class wheat, 2026 harvest: 92,000-115,000 tenge per tonne. https://dairynews.today/kz/news/pravitelstvo_kazakhstana_ustanovilo_zakupochnye_tseny_na_pshenitsu_urozhaya_2026_goda_5993571.html",
+      "ELEVATOR_AUG_2025": "Elevator prices with VAT, Kazakhstan, August 2025 (Grain and oilseeds research bureau, via Bizmedia.kz). https://bizmedia.kz/2025-08-18-rekomendaczii-po-torgovoj-strategii-dlya-proizvoditelej-zerna-maslichnyh-i-bobovyh/",
+      "STAT_DEC_2024": "Average farm-gate prices, December 2024, Bureau of National Statistics (via Dairynews). https://dairynews.today/kz/news/v-kazakhstane-tseny-na-zernovye-snizilis-a-maslichnye-podorozhali-v-dekabre-2024-goda.html"
+    },
+    "crops": {
+      "wheat": {
+        "yield_t_ha": 1.3,
+        "price_per_t": 100000,
+        "cost_per_ha": 70000,
+        "price_source": "PRODCORP_2026, middle of the range"
+      },
+      "barley": {
+        "yield_t_ha": 1.4,
+        "price_per_t": 72000,
+        "cost_per_ha": 65000,
+        "price_source": "ELEVATOR_AUG_2025, barley class 2"
+      },
+      "oats": {
+        "yield_t_ha": 1.3,
+        "price_per_t": 50000,
+        "cost_per_ha": 60000,
+        "price_source": "STAT_DEC_2024, feed grain (no oat quote found)"
+      },
+      "pea": {
+        "yield_t_ha": 1.2,
+        "price_per_t": 105000,
+        "cost_per_ha": 70000,
+        "price_source": "ELEVATOR_AUG_2025, yellow pea"
+      },
+      "lentil": {
+        "yield_t_ha": 0.9,
+        "price_per_t": 175000,
+        "cost_per_ha": 75000,
+        "price_source": "ELEVATOR_AUG_2025, red lentil"
+      },
+      "flax": {
+        "yield_t_ha": 0.8,
+        "price_per_t": 246000,
+        "cost_per_ha": 75000,
+        "price_source": "ELEVATOR_AUG_2025, flax"
+      },
+      "fallow": {
+        "cost_per_ha": 20000
+      }
+    },
+    "_merged_from": "Up To Para version by LunarOblivion"
+  }
+}

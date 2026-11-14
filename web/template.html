@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>/*PROJECT_NAME*/: try your rotation on your field's own past</title>
+<meta name="description" content="Pick a field in northern Kazakhstan. NASA satellites and weather records since 2000 show what fallow really gave it and how other rotations would have done.">
+<!-- Everything is inlined: the page works without the internet. Leaflet 1.9.4, BSD-2-Clause, web/vendor/leaflet. -->
+<style>/*LEAFLET_CSS*/</style>
+<script>/*LEAFLET_JS*/</script>
+<style>/*STYLE*/</style>
+</head>
+<body>
+
+<section class="orbit" aria-label="Map">
+  <div id="map" class="map" role="region" aria-label="Map"></div>
+
+  <header class="orbit-head">
+    <div class="brand-block">
+      <p class="brand" data-t="brand"></p>
+      <p class="tagline" data-t="tagline"></p>
+    </div>
+    <div id="langs" class="langs" role="group" aria-label="Language / Язык"></div>
+  </header>
+
+  <aside class="console" aria-labelledby="field-label">
+    <h2 id="field-label" class="console-title" data-t="pickField"></h2>
+    <div id="fields" class="field-list"></div>
+    <p id="field-meta" class="field-meta"></p>
+    <form id="coord-form" class="coord-form">
+      <label for="coord" class="sr-only" data-t="coordLabel"></label>
+      <input id="coord" type="text" inputmode="decimal" autocomplete="off" spellcheck="false">
+      <button type="submit" data-t="coordButton"></button>
+    </form>
+    <p class="map-hint" data-t="mapHint"></p>
+    <p id="live-status" class="live-status" aria-live="polite"></p>
+  </aside>
+
+  <div class="lens" role="group" aria-labelledby="lens-title">
+    <p id="lens-title" class="lens-title" data-t="lensTitle"></p>
+    <div id="lens-modes" class="lens-modes"></div>
+    <label class="lens-check"><input type="checkbox" id="grid-toggle" checked> <span data-t="gridToggle"></span></label>
+    <div id="lens-legend" class="lens-legend"></div>
+  </div>
+
+  <div id="loader" class="loader" hidden aria-live="polite">
+    <p class="loader-title" data-t="loaderTitle"></p>
+    <p id="loader-year" class="loader-year"></p>
+    <ol class="loader-steps">
+      <li id="ld-weather"><span class="ld-name" data-t="ldWeather"></span><span class="ld-bar"><i></i></span><span class="ld-val"></span></li>
+      <li id="ld-ndvi"><span class="ld-name" data-t="ldNdvi"></span><span class="ld-bar"><i></i></span><span class="ld-val"></span></li>
+      <li id="ld-grid"><span class="ld-name" data-t="ldGrid"></span><span class="ld-bar"><i></i></span><span class="ld-val"></span></li>
+    </ol>
+    <p class="loader-note" data-t="loaderNote"></p>
+    <button type="button" id="loader-hide" class="ghost-btn" data-t="loaderHide"></button>
+  </div>
+
+  <div class="timeline" role="group" aria-labelledby="tl-title">
+    <div class="tl-row">
+      <button type="button" id="play" class="play" aria-pressed="false"></button>
+      <span id="tl-title" class="tl-title" data-t="tlTitle"></span>
+      <label class="tl-season"><span class="sr-only" data-t="seasonLabel"></span><select id="season"></select></label>
+    </div>
+    <div id="years" class="years"></div>
+    <p id="year-readout" class="year-readout" aria-live="polite"></p>
+  </div>
+</section>
+
+<main>
+  <section class="pass" aria-labelledby="s0">
+    <div class="wrap">
+      <p class="pass-n" data-t="pass1"></p>
+      <h2 id="s0" data-t="s0Title"></h2>
+      <p id="point-warning" class="point-warning" role="note" hidden></p>
+      <div class="verdict" aria-live="polite">
+        <p id="answer-1" class="answer-main"></p>
+        <p id="answer-2" class="answer-sub"></p>
+        <p id="answer-3" class="answer-sub"></p>
+        <p id="answer-note" class="answer-note"></p>
+      </div>
+      <div class="audit-grid">
+        <figure class="ribbon-fig">
+          <figcaption>
+            <span class="fig-title" data-t="ribbonTitle"></span>
+            <span class="fig-sub" data-t="ribbonSub"></span>
+          </figcaption>
+          <div class="ribbon-wrap"><canvas id="ribbon" aria-describedby="ribbon-desc"></canvas></div>
+          <p id="ribbon-desc" class="sr-only" data-t="ribbonDesc"></p>
+          <p id="ribbon-status" class="ribbon-status" aria-live="polite"></p>
+          <p id="records-check" class="ribbon-status"></p>
+          <div class="ribbon-legend" id="ribbon-legend"></div>
+        </figure>
+        <figure class="grid-fig">
+          <figcaption>
+            <span class="fig-title" data-t="gridTitle"></span>
+            <span class="fig-sub" data-t="gridSub"></span>
+          </figcaption>
+          <canvas id="grid-map" class="grid-map" aria-describedby="grid-summary"></canvas>
+          <div class="grid-legend" id="grid-legend"></div>
+          <p id="grid-summary" class="grid-summary"></p>
+          <div id="grid-years" class="grid-years"></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="pass" aria-labelledby="s1">
+    <div class="wrap">
+      <p class="pass-n" data-t="pass2"></p>
+      <h2 id="s1" data-t="s1Title"></h2>
+      <p class="step-lead" data-t="s1Lead"></p>
+      <div class="settings">
+        <label><span data-t="soil"></span><select id="soil"></select></label>
+        <label><span data-t="sowShift"></span><select id="sow-shift"></select></label>
+        <button type="button" id="reset" class="link-btn" data-t="reset"></button>
+      </div>
+      <div class="panels">
+        <details class="panel" id="scenario-panel">
+          <summary data-t="scTitle"></summary>
+          <p class="panel-lead" data-t="scLead"></p>
+          <label class="range"><span data-t="scRain"></span><input type="range" id="sc-rain" min="-30" max="20" step="10" value="0"><output id="sc-rain-out"></output></label>
+          <label class="range"><span data-t="scTemp"></span><input type="range" id="sc-temp" min="0" max="3" step="0.5" value="0"><output id="sc-temp-out"></output></label>
+        </details>
+        <details class="panel" id="priority-panel">
+          <summary data-t="prTitle"></summary>
+          <p class="panel-lead" data-t="prLead"></p>
+          <div id="priorities"></div>
+          <p class="panel-sub" data-t="prCrops"></p>
+          <div id="crop-allow" class="allow"></div>
+        </details>
+        <details class="panel" id="passport-panel">
+          <summary data-t="ppTitle"></summary>
+          <p class="panel-lead" data-t="ppLead"></p>
+          <div class="pp-grid" id="passport"></div>
+          <p id="pp-result" class="pp-result"></p>
+        </details>
+      </div>
+      <p id="fit" class="fit"></p>
+      <div id="rotations" class="rotations"></div>
+      <div class="strip-legend" id="strip-legend"></div>
+      <div class="stress">
+        <h3 class="stress-title" data-t="stressTitle"></h3>
+        <p id="stress-lead" class="stress-lead"></p>
+        <table id="stress" class="stress-table"></table>
+      </div>
+    </div>
+  </section>
+
+  <section class="pass" aria-labelledby="s2">
+    <div class="wrap">
+      <p class="pass-n" data-t="pass3"></p>
+      <h2 id="s2" data-t="s2Title"></h2>
+      <p class="step-lead" data-t="s2Lead"></p>
+      <p class="money-banner" role="note" data-t="fa.moneyBanner"></p>
+      <div class="money-grid">
+        <figure class="money-fig">
+          <div id="money-chart" class="chart"></div>
+          <p id="money-summary" class="fig-note"></p>
+        </figure>
+        <div class="econ">
+          <p class="econ-title" data-t="econTitle"></p>
+          <table id="econ" class="econ-table"></table>
+          <p class="fig-note" data-t="econNote"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pass" aria-labelledby="sA">
+    <div class="wrap">
+      <p class="pass-n" data-t="pass4"></p>
+      <h2 id="sA" data-t="sATitle"></h2>
+      <div class="smap" id="smap" aria-live="polite"></div>
+      <p id="autumn-lead" class="step-lead autumn-lead"></p>
+      <div class="settings">
+        <label><span data-t="thisYear"></span><select id="this-year"></select></label>
+        <label><span data-t="nextYear"></span><select id="next-year"></select></label>
+      </div>
+      <div class="autumn-grid">
+        <div id="autumn-chart" class="chart"></div>
+        <div>
+          <p id="autumn-answer" class="autumn-answer"></p>
+          <p id="autumn-detail" class="autumn-detail"></p>
+          <div id="autumn-years" class="autumn-years"></div>
+          <p class="fig-note" data-t="autumnNote"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pass" aria-labelledby="s3">
+    <div class="wrap">
+      <p class="pass-n" data-t="pass5"></p>
+      <h2 id="s3" data-t="s3Title"></h2>
+      <p class="step-lead" data-t="s3Lead"></p>
+      <p id="slope" class="slope"></p>
+      <div id="water-split" class="split"></div>
+      <div class="split-legend" id="split-legend"></div>
+      <div id="fallow-window" class="fallow-window"></div>
+    </div>
+  </section>
+
+  <section class="pass" aria-labelledby="s4">
+    <div class="wrap">
+      <p class="pass-n" data-t="pass6"></p>
+      <h2 id="s4" data-t="s4Title"></h2>
+      <p class="step-lead" data-t="s4Lead"></p>
+      <div id="cards" class="cards"></div>
+    </div>
+  </section>
+
+  <!-- Fallow Audit: checks of the model against independent data. AI assistance: drafted with an AI model
+       (Claude, Anthropic), reviewed by the team. -->
+  <section class="pass" aria-labelledby="sV">
+    <div class="wrap">
+      <p class="pass-n" data-t="pass7"></p>
+      <h2 id="sV" data-t="fa.checksTitle"></h2>
+      <p class="step-lead" data-t="fa.checksLead"></p>
+      <div class="check-block" id="gw-block">
+        <h3 class="check-title" data-t="fa.gwTitle"></h3>
+        <p id="gw-lead" class="check-lead"></p>
+        <div class="table-scroll"><table id="gw-table" class="stress-table check-table"></table></div>
+        <p id="gw-note" class="fig-note"></p>
+      </div>
+      <div class="check-block" id="trial-block" hidden>
+        <h3 class="check-title" data-t="fa.trialTitle"></h3>
+        <p id="trial-lead" class="check-lead"></p>
+        <div class="table-scroll"><table id="trial-compare" class="stress-table check-table"></table></div>
+        <p id="trial-verdict" class="check-verdict"></p>
+        <h4 class="check-sub" data-t="fa.trialMeasuredTitle"></h4>
+        <div class="table-scroll"><table id="trial-table" class="stress-table check-table"></table></div>
+        <p id="trial-notes" class="fig-note"></p>
+      </div>
+      <div class="check-block" id="carbon-block">
+        <h3 class="check-title" data-t="fa.carbonCheckTitle"></h3>
+        <p id="carbon-check" class="check-lead"></p>
+        <p id="carbon-coeffs" class="fig-note"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pass pass-last" aria-labelledby="sG">
+    <div class="wrap">
+      <details class="glossary">
+        <summary id="sG" data-t="glTitle"></summary>
+        <dl id="glossary"></dl>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div><h3 data-t="fData"></h3><p data-t="fDataText"></p></div>
+    <div><h3 data-t="fMethod"></h3><p data-t="fMethodText"></p></div>
+    <div><h3 data-t="fLimits"></h3><p data-t="fLimitsText"></p></div>
+  </div>
+</footer>
+
+<div id="tip" class="tip" role="status"></div>
+<script>const DATA=/*DATA*/;</script>
+<script>/*MODEL*/</script>
+<script>/*LIVE*/</script>
+<script>/*APP*/</script>
+</body>
+</html>

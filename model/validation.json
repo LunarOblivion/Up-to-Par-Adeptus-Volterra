@@ -1,0 +1,308 @@
+{
+  "_ai_assistance": "drafted with an AI model (Claude, Anthropic) and reviewed by the team",
+  "_about": "Published results of the Shortandy rotation trial (step 5 of the page, shortandy only), and how each is compared with the model. The paper was read by the team and the numbers were checked word by word against the publisher's PDF on 2026-11-14; the AI could not open the full text itself (publisher host not reachable / HTTP 403). Never estimate a value: a number the paper does not give is 'not reported in the paper'.",
+  "_kinds": {
+    "range": "published numbers against model values; each model value has 'compare_to': 'range' (the published_range), a number (a published value for that year), or null (shown for reference, no verdict)",
+    "direction": "published statement about which option is higher; the model has no grain yield, so only the direction is compared, with the first model value expected to be the highest",
+    "not_reported": "the paper gives no number for this; the model value is shown alone"
+  },
+  "source": {
+    "short": "Suleimenov et al., 2005",
+    "citation": "Suleimenov, M., Akhmetov, K., Kaskarbayev, Zh., Kireyev, A., Martynova, L., Medeubayev, R. (2005). Role of Wheat in Diversified Cropping Systems in Dryland Agriculture of Central Asia. Turkish Journal of Agriculture and Forestry 29(2): 143-150",
+    "url": "https://journals.tubitak.gov.tr/agriculture/vol29/iss2/7",
+    "full_text": "https://aj.tubitak.gov.tr/agriculture/issues/tar-05-29-2/tar-29-2-7-0312-15.pdf",
+    "verified_by": "team, checked against the publisher PDF on 2026-11-14"
+  },
+  "points": {
+    "shortandy": {
+      "trial": {
+        "verified_by": "team, checked against the publisher PDF on 2026-11-14",
+        "pages": "143-145",
+        "years": "2000-2002",
+        "site": "Shortandy, northern Kazakhstan",
+        "soil": "chernozem, heavy clay loam, 3.5 % humus",
+        "precipitation_mm_per_year": 350,
+        "mean_air_temperature_c": 1.2,
+        "table": "Table 1, p. 144: grain yield, t/ha, mean of 2000-2002",
+        "rotations": {
+          "A_current": {
+            "name": "F-W-W-B (control)",
+            "crops": [
+              "fallow",
+              "wheat",
+              "wheat",
+              "barley"
+            ],
+            "yield_t_ha": [
+              0,
+              2.07,
+              1.71,
+              2.62
+            ],
+            "whole_area_t_ha": 1.59
+          },
+          "C_oats": {
+            "name": "O-W-W-B",
+            "crops": [
+              "oats",
+              "wheat",
+              "wheat",
+              "barley"
+            ],
+            "yield_t_ha": [
+              2.67,
+              1.72,
+              1.48,
+              2.84
+            ],
+            "whole_area_t_ha": 2.07
+          },
+          "B_pea": {
+            "name": "P-W-W-B",
+            "crops": [
+              "pea",
+              "wheat",
+              "wheat",
+              "barley"
+            ],
+            "yield_t_ha": [
+              1.6,
+              1.64,
+              1.5,
+              2.24
+            ],
+            "whole_area_t_ha": 1.75
+          }
+        },
+        "weeds_dry_matter_g_m2": {
+          "A_current": 9.9,
+          "C_oats": 10.1,
+          "B_pea": 19.2
+        },
+        "notes": [
+          "Weeds, mainly wild oat, were twice as abundant in the pea rotation; pea was not treated with herbicide.",
+          "Barley after pea gave a low yield."
+        ]
+      },
+      "comparisons": {
+        "fallow_advantage_at_sowing": {
+          "kind": "range",
+          "label": "Extra available soil water at spring-wheat sowing after fallow, compared with wheat on stubble",
+          "unit": "mm",
+          "published_range": [
+            20,
+            30
+          ],
+          "depth_cm": 100,
+          "years": "2000-2002",
+          "page_or_table": "p. 144",
+          "note": "the paper does not name the two years with +20 to +30 mm; with 2001 excluded they can only be 2000 and 2002",
+          "verified_by": "team, checked against the publisher PDF on 2026-11-14",
+          "model_values": [
+            {
+              "label": "2000, 0-100 cm",
+              "depth_cm": 100,
+              "path": [
+                "rotations",
+                "A_current",
+                "fallow_advantage_at_wheat_sowing_mm",
+                "by_year"
+              ],
+              "years": [
+                2000,
+                2000
+              ],
+              "key": "cm100",
+              "compare_to": "range"
+            },
+            {
+              "label": "2001, 0-100 cm",
+              "depth_cm": 100,
+              "path": [
+                "rotations",
+                "A_current",
+                "fallow_advantage_at_wheat_sowing_mm",
+                "by_year"
+              ],
+              "years": [
+                2001,
+                2001
+              ],
+              "key": "cm100",
+              "compare_to": -20,
+              "year": 2001
+            },
+            {
+              "label": "2002, 0-100 cm",
+              "depth_cm": 100,
+              "path": [
+                "rotations",
+                "A_current",
+                "fallow_advantage_at_wheat_sowing_mm",
+                "by_year"
+              ],
+              "years": [
+                2002,
+                2002
+              ],
+              "key": "cm100",
+              "compare_to": "range"
+            },
+            {
+              "label": "mean 2000-2002, 0-100 cm",
+              "depth_cm": 100,
+              "path": [
+                "rotations",
+                "A_current",
+                "fallow_advantage_at_wheat_sowing_mm",
+                "by_year"
+              ],
+              "years": [
+                2000,
+                2002
+              ],
+              "key": "cm100",
+              "compare_to": null
+            },
+            {
+              "label": "mean 2000-2026, 0-100 cm",
+              "depth_cm": 100,
+              "path": [
+                "rotations",
+                "A_current",
+                "fallow_advantage_at_wheat_sowing_mm",
+                "mean_cm100"
+              ],
+              "compare_to": null
+            },
+            {
+              "label": "mean 2000-2026, 0-120 cm",
+              "depth_cm": 120,
+              "path": [
+                "rotations",
+                "A_current",
+                "fallow_advantage_at_wheat_sowing_mm",
+                "mean_cm120"
+              ],
+              "compare_to": null
+            }
+          ],
+          "published_text": "+20 to +30 mm in two of the three years; -20 mm in 2001 (stubble wetter)",
+          "published_by_year": {
+            "2001": -20
+          },
+          "quote": "The advantage of summer fallow against stubble land in available moisture storage by the time of sowing spring wheat during two years amounted to 20-30 mm in 1 meter layer, whereas in 2001 it was even 20 mm higher on stubble land."
+        },
+        "wheat_after_fallow_direction": {
+          "kind": "direction",
+          "label": "Wheat after fallow against wheat after oats and after pea",
+          "unit": "%",
+          "published_text": "wheat after fallow yielded 20-25 % more grain than wheat after oats and after pea",
+          "years": "2000-2002",
+          "page_or_table": "p. 144",
+          "verified_by": "team, checked against the publisher PDF on 2026-11-14",
+          "model_values": [
+            {
+              "label": "after fallow",
+              "path": [
+                "rotations",
+                "A_current",
+                "by_crop",
+                "wheat after fallow",
+                "demand_met_pct"
+              ]
+            },
+            {
+              "label": "after pea",
+              "path": [
+                "rotations",
+                "B_pea",
+                "by_crop",
+                "wheat after pea",
+                "demand_met_pct"
+              ]
+            },
+            {
+              "label": "after oats",
+              "path": [
+                "rotations",
+                "C_oats",
+                "by_crop",
+                "wheat after oats",
+                "demand_met_pct"
+              ]
+            }
+          ],
+          "model_measure": "share of the wheat's water need that was met (the model does not compute grain yield)"
+        },
+        "water_at_sowing_wheat_after_pea": {
+          "kind": "not_reported",
+          "label": "Soil water at sowing, wheat after pea",
+          "unit": "mm",
+          "model_values": [
+            {
+              "label": "0-120 cm",
+              "path": [
+                "rotations",
+                "B_pea",
+                "by_crop",
+                "wheat after pea",
+                "water_at_sowing_mm"
+              ]
+            }
+          ]
+        },
+        "water_at_sowing_wheat_after_oats": {
+          "kind": "not_reported",
+          "label": "Soil water at sowing, wheat after oats",
+          "unit": "mm",
+          "model_values": [
+            {
+              "label": "0-120 cm",
+              "path": [
+                "rotations",
+                "C_oats",
+                "by_crop",
+                "wheat after oats",
+                "water_at_sowing_mm"
+              ]
+            }
+          ]
+        },
+        "fallow_gain": {
+          "kind": "not_reported",
+          "label": "Soil water gained over the fallow, previous harvest to wheat sowing",
+          "unit": "mm",
+          "model_values": [
+            {
+              "label": "0-120 cm",
+              "path": [
+                "rotations",
+                "A_current",
+                "fallow",
+                "mean_gain_mm"
+              ]
+            }
+          ]
+        },
+        "fallow_storage_efficiency": {
+          "kind": "not_reported",
+          "label": "Fallow precipitation storage efficiency (soil water gained / rain and snow)",
+          "unit": "%",
+          "model_values": [
+            {
+              "label": "harvest to sowing",
+              "path": [
+                "rotations",
+                "A_current",
+                "fallow",
+                "storage_efficiency_pct",
+                "mean"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

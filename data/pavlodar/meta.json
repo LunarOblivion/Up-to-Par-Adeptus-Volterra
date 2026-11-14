@@ -1,0 +1,10 @@
+{
+  "id": "pavlodar",
+  "name": "Field near Voznesenka, Pavlodar Region",
+  "lat": 52.788,
+  "lon": 77.9154,
+  "fetched_on": "2026-11-14",
+  "power_days": 16744,
+  "elevation_m": 116.8,
+  "elevation_source": "NASA POWER grid point (geometry.coordinates[2]), requested 2026-11-14"
+}

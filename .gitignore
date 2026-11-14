@@ -1,0 +1,10 @@
+# Archives the project arrived in (contents are extracted into the repository)
+*.zip
+# Internal team document, not for the public repository
+*.docx
+__pycache__/
+*.pyc
+# Build output for the JavaScript tests (python build_site.py), not published
+build/
+# Raw API responses cached by data_fetch/fetch_data.py: not needed to rebuild, not published
+data/*/raw/

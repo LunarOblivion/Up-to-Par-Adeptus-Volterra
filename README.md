@@ -239,8 +239,8 @@ docs/             the published page (GitHub Pages)
     dynamics for rainfed cereal farming in northern Kazakhstan. Soil Science and Plant Nutrition 54(5): 794-806.
     https://doi.org/10.1111/j.1747-0765.2007.00298.x (abstract)
 12. USDA ARS, AgResearch Magazine, January 2011. https://agresearchmag.ars.usda.gov/2011/jan/rotations
-13. Manitoba Agriculture. Number of days required for a crop to reach maturity.
-    https://prodtracs.gov.mb.ca/agriculture/crops/crop-management/pubs/days-maturity.pdf
+13. Manitoba Agriculture. Agricultural Climate of Manitoba, Table 1: Number of Days Required for Selected Crops to Reach Maturity.
+    https://www.gov.mb.ca/agriculture/weather/agricultural-climate-of-mb.html
 14. Example prices: Prodcorporation wheat purchase price, 2026 harvest
     (https://dairynews.today/kz/news/pravitelstvo_kazakhstana_ustanovilo_zakupochnye_tseny_na_pshenitsu_urozhaya_2026_goda_5993571.html);
     elevator prices, August 2025 (https://bizmedia.kz/2025-08-18-rekomendaczii-po-torgovoj-strategii-dlya-proizvoditelej-zerna-maslichnyh-i-bobovyh/);

@@ -3,8 +3,6 @@ Every Python file in the repository must parse as Python 3.9 (no match, no X | Y
 
 ast.parse(feature_version=(3, 9)) checks grammar only. Library calls added after 3.9
 (for example zip(strict=True) or Path.write_text(newline=...)) are not caught here.
-
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import ast

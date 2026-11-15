@@ -8,8 +8,6 @@ which the example turns into Rs = 22.07 MJ m-2 day-1, with Ra = 41.09 and ea = 1
 
 water.reference_et takes the daily mean relative humidity (that is what NASA POWER gives),
 so the test passes the RH that reproduces the example's ea: RH = ea / es = 1.409 / 1.997.
-
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import datetime as dt

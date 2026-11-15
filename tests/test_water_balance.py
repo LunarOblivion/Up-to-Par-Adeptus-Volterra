@@ -5,8 +5,6 @@ and the living-cover day counts add up.
 Water balance over a whole run:
   rain and snow = transpiration + soil evaporation + deep drainage + blown snow + melt runoff
                   + change of soil water + change of snowpack
-
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import datetime as dt

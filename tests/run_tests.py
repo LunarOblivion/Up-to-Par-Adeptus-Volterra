@@ -4,8 +4,6 @@ Run every test in tests/ with the standard unittest runner.
 
 Usage:  python tests/run_tests.py
 Run python run_all.py first: test_site checks the page that run_all.py built.
-
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import pathlib

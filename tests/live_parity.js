@@ -4,8 +4,6 @@
  * calendar (model/cover.py).
  *
  *   python build_site.py && node tests/live_parity.js
- *
- * AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
  */
 const fs = require("fs");
 const path = require("path");

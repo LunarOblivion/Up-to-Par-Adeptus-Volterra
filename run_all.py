@@ -15,8 +15,6 @@ Usage:
 
 This script never downloads anything. For a new point run data_fetch/fetch_data.py first.
 Standard library only, Python 3.9+.
-
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import argparse

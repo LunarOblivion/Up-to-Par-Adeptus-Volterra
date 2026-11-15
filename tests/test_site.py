@@ -5,7 +5,6 @@ with no internet at all, and fits a phone screen.
 The browser checks need Chrome or Edge (run headless with every host name blocked); without one
 they are skipped and only the static checks run; then check the page by hand in a browser.
 
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import json

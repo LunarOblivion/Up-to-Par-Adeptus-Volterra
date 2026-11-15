@@ -822,7 +822,11 @@
     }
     const w = Math.max(320, el.clientWidth || 900), h = Math.max(320, el.clientHeight || 600);
     const wide = w > 900;
-    const pad = wide ? { l: 380, r: 320, t: 150, b: 230 } : { l: 48, r: 16, t: 150, b: 40 };
+    // the note goes first (below the title block, see .mf-note); the sketch starts below the note
+    box.innerHTML = `<p class="mf-note">${T().mapOffline}</p>`;
+    box.hidden = false;
+    const note = box.querySelector(".mf-note"), top = Math.max(150, note.offsetTop + note.offsetHeight + 24);
+    const pad = wide ? { l: 380, r: 320, t: top, b: 230 } : { l: 48, r: 16, t: top, b: 40 };
     const pts = Object.entries(DATA.points).filter(([, p]) => !p.live);
     const lats = pts.map(([, p]) => p.meta.lat), lons = pts.map(([, p]) => p.meta.lon);
     const lat0 = Math.floor(Math.min(...lats)) - 1, lat1 = Math.ceil(Math.max(...lats)) + 1;
@@ -836,7 +840,8 @@
     for (let lat = lat0; lat <= lat1; lat++) svg += `<line x1="${X(lon0)}" x2="${X(lon1)}" y1="${Y(lat)}" y2="${Y(lat)}" class="mf-grid"/><text x="${X(lon0) - 6}" y="${Y(lat) + 4}" class="mf-axis" text-anchor="end">${lat}°N</text>`;
     for (let lon = lon0; lon <= lon1; lon += 2) svg += `<line y1="${Y(lat0)}" y2="${Y(lat1)}" x1="${X(lon)}" x2="${X(lon)}" class="mf-grid"/><text x="${X(lon)}" y="${Y(lat0) + 16}" class="mf-axis" text-anchor="middle">${lon}°E</text>`;
     // Labels: try right, left, above, below; keep the first place that does not overlap another label.
-    const placed = [], charW = wide ? 7.2 : 6.6;
+    const charW = wide ? 7.2 : 6.6;
+    const placed = pts.map(([, p]) => { const x = X(p.meta.lon), y = Y(p.meta.lat); return { x1: x - 8, x2: x + 8, y1: y - 8, y2: y + 8 }; });   // labels keep off every dot
     const overlaps = (b) => placed.some(o => b.x1 < o.x2 && b.x2 > o.x1 && b.y1 < o.y2 && b.y2 > o.y1);
     pts.forEach(([id, p]) => {
       const x = X(p.meta.lon), y = Y(p.meta.lat), on = id === state.point;
@@ -854,8 +859,7 @@
         `<circle cx="${x}" cy="${y}" r="${on ? 9 : 6}"/><text x="${pick.tx}" y="${pick.ty}" text-anchor="${pick.anchor}">${label}</text></g>`;
     });
     svg += "</svg>";
-    box.innerHTML = `<p class="mf-note">${T().mapOffline}</p>` + svg;
-    box.hidden = false;
+    box.insertAdjacentHTML("beforeend", svg);
     mapFallbackOn = true;
   }
   function hideMapFallback() { const box = $("map-fallback"); if (box) box.hidden = true; mapFallbackOn = false; }
@@ -2040,6 +2044,24 @@
   $("next-year").addEventListener("change", renderAutumn);
 
   applyText();
+  // keep the field console below the title block whatever its height (language, browser translation, font)
+  const orbitHead = document.querySelector(".orbit-head"), orbitBox = document.querySelector(".orbit");
+  let headH = 0;
+  const placeConsole = () => {
+    const h = Math.ceil(orbitHead.getBoundingClientRect().bottom - orbitBox.getBoundingClientRect().top);
+    if (h === headH) return;
+    headH = h;
+    orbitBox.style.setProperty("--head-h", h + "px");
+    if (mapFallbackOn) drawMapFallback();          // the offline map sketch moves its note and frame down too
+  };
+  if (orbitHead && orbitBox) {
+    placeConsole();
+    if (window.ResizeObserver) new ResizeObserver(placeConsole).observe(orbitHead);
+    // a browser translation or a language switch replaces the text: measure again right away
+    if (window.MutationObserver) new MutationObserver(placeConsole).observe(orbitHead, { subtree: true, childList: true, characterData: true });
+    window.addEventListener("resize", placeConsole);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeConsole);
+  }
   fillAutumnSelects();
   renderPriorities();
   renderGlossary();

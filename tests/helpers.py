@@ -54,7 +54,7 @@ window.__wait = ms => new Promise(r => setTimeout(r, ms));
 </script>"""
 
 
-def probe_page(html_path, width, body_js, offline=True, start_ms=7000, budget_ms=90000):
+def probe_page(html_path, width, body_js, offline=True, start_ms=7000, budget_ms=90000, height=900):
     """Open the page in headless Chrome or Edge and run `body_js`, the body of an async function whose
     return value comes back as a Python object (with the page's script errors under "errors").
 
@@ -76,7 +76,7 @@ def probe_page(html_path, width, body_js, offline=True, start_ms=7000, budget_ms
              ' document.title = "PROBE " + JSON.stringify(out); }, ' + str(start_ms) + ");</script></body>")
     page = page.replace("<head>", "<head>" + ERROR_HOOK, 1).replace("</body>", probe, 1)
     args = ["--headless=new", "--disable-gpu", "--no-first-run", "--hide-scrollbars",
-            f"--window-size={window},900", f"--virtual-time-budget={budget_ms}", "--dump-dom"]
+            f"--window-size={window},{height}", f"--virtual-time-budget={budget_ms}", "--dump-dom"]
     if offline:
         args.append("--host-resolver-rules=MAP * ~NOTFOUND")
     with tempfile.TemporaryDirectory() as tmp:

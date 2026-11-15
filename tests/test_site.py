@@ -208,6 +208,24 @@ class Site(unittest.TestCase):
                         "При примерных урожаях и затратах выше,", "— по "):
             self.assertIn(present, ru)
 
+    def test_title_block_never_covers_the_field_list(self):
+        """A longer tagline (another language, a browser translation) pushes the field list down;
+        the project name is marked translate="no" so a browser does not translate it."""
+        self.assertIn('class="brand" data-t="brand" translate="no"', self.html)
+        result = probe_page(self.page, 1440, r"""
+const gap = () => { const t = document.querySelector('.tagline').getBoundingClientRect(), c = document.querySelector('.console').getBoundingClientRect();
+                    return c.top - t.bottom; };
+const out = { normal: gap() };
+document.querySelector('.tagline').textContent = 'Для объективной проверки эффективности севооборота требуется около двадцати лет полевых испытаний. Спутники НАСА уже зафиксировали эти годы. Прежде чем что-либо менять, проведите проверку своего севооборота на примере прошлых лет на вашем собственном поле.';
+await __wait(800);
+out.long = gap();
+return out;""", height=720)
+        if result is None:
+            self.skipTest("Chrome or Edge not found")
+        self.assertEqual(result["errors"], [])
+        self.assertGreaterEqual(result["normal"], 0)
+        self.assertGreaterEqual(result["long"], 0, "the tagline slides under the field list")
+
     def test_offline_russian(self):
         result = self.browser(1440)
         self.assertGreater(result["ru"]["cyrillic"], 2000)

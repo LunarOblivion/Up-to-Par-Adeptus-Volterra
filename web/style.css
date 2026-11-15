@@ -55,7 +55,10 @@ a { color: var(--straw); }
 .langs button[aria-pressed="true"] { background: var(--straw); color: #1b1608; font-weight: 600; }
 
 /* field console, left */
-.console { position: absolute; z-index: 500; left: 28px; top: 196px; width: 320px; max-height: calc(100% - 196px - 190px);
+/* --head-h: height of the title block, measured by app.js; a longer tagline (another language, a browser
+   translation) pushes the console down instead of sliding under it */
+.console { --console-top: max(196px, calc(var(--head-h, 0px) + 16px));
+  position: absolute; z-index: 500; left: 28px; top: var(--console-top); width: 320px; max-height: calc(100% - var(--console-top) - 190px);
   overflow: auto; background: rgba(15, 22, 20, 0.88); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px 12px;
   backdrop-filter: blur(6px); }
 .console-title { font: 500 13px/1.2 var(--display); color: var(--text-2); margin: 0 0 8px; }
@@ -288,7 +291,7 @@ figcaption { display: flex; flex-direction: column; margin-bottom: 10px; }
   .orbit-head { padding-top: 16px; }
   .brand { font-size: 28px; }
   .tagline { font-size: 14px; margin-top: 6px; max-width: 64ch; }
-  .console { top: 128px; max-height: calc(100% - 128px - 132px); padding: 10px 12px; }
+  .console { --console-top: max(128px, calc(var(--head-h, 0px) + 12px)); max-height: calc(100% - var(--console-top) - 132px); padding: 10px 12px; }
   .field-list button { padding: 4px 8px; font-size: 14px; }
   .map-hint { display: none; }
   .lens { top: 70px; padding: 10px 12px; }
@@ -325,7 +328,7 @@ figcaption { display: flex; flex-direction: column; margin-bottom: 10px; }
 .map-fallback { position: absolute; inset: 0; z-index: 450; background: #0b100f; overflow: hidden; }
 .map-fallback[hidden] { display: none; }
 .map-fallback svg { display: block; width: 100%; height: 100%; }
-.mf-note { position: absolute; left: 50%; transform: translateX(-50%); top: 104px; margin: 0; width: min(560px, calc(100% - 40px));
+.mf-note { position: absolute; left: 50%; transform: translateX(-50%); top: max(104px, calc(var(--head-h, 0px) + 12px)); margin: 0; width: min(560px, calc(100% - 40px));
            font-size: 14px; line-height: 1.45; color: var(--text); background: rgba(15, 22, 20, 0.88); border: 1px solid rgba(233, 237, 230, 0.16);
            border-radius: 10px; padding: 10px 14px; text-align: center; }
 .mf-frame { fill: #111a18; stroke: rgba(233, 237, 230, 0.18); }

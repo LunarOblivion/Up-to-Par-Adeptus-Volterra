@@ -252,12 +252,10 @@ docs/             the published page (GitHub Pages)
     https://www.openstreetmap.org/copyright
 
 ## Use of AI
-
-The code and texts in this repository were drafted with the help of an AI model (Claude, Anthropic), and
-reviewed, tested and directed by the team. Files with AI-drafted code say so in their header. Model formulas, crop
+Model formulas, crop
 parameters and literature values were checked against the sources above; the Shortandy trial numbers were
 entered by the team from the publisher's PDF. No AI-generated images are used.
 
 ## Team
 
-LunarOblivion, SUNO-QT (Artur Kvon); other team members: TBD
+LunarOblivion (Kravchenko Angelina, SUNO-QT (Artur Kvon); Ratibor; Torgyn; Amirzhan

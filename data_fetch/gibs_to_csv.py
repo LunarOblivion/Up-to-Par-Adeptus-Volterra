@@ -8,9 +8,7 @@ live page does.
 
     python data_fetch/gibs_to_csv.py
 
-Up To Para version by LunarOblivion.
-AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
-"""
+Up To Para version by LunarOblivion."""
 import csv
 import datetime as dt
 import pathlib

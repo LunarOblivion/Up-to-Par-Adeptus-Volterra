@@ -1,5 +1,4 @@
 {
-  "_ai_assistance": "drafted with an AI model (Claude, Anthropic) and reviewed by the team",
   "_note": "Field centres picked by eye on Google Maps satellite imagery on 14 Nov 2026. Each point is at least 500 m from the field edge. MODIS pixels are 250 m. The page shows the fields in this order. The last five fields come from the Up To Para version (LunarOblivion).",
   "_optional_fields": {
     "sow_dates": "sowing date per crop as MM-DD, e.g. {\"wheat\": \"05-01\", \"barley\": \"05-05\"}; crops not listed keep the dates in model/crops.json",

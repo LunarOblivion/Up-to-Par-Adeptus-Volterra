@@ -1,7 +1,5 @@
 """
 Shared helpers for the tests: import paths, the page data, and a headless-Chrome probe of the page.
-
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import html as html_module

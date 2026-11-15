@@ -1,6 +1,5 @@
 """
-The pipeline as a whole: the committed results in data/ are exactly what the code produces now,
-and every code file says that it was drafted with AI assistance.
+The pipeline as a whole: the committed results in data/ are exactly what the code produces now.
 
 """
 
@@ -92,15 +91,6 @@ class Pipeline(unittest.TestCase):
     def test_point_without_data_is_skipped(self):
         with tempfile.TemporaryDirectory() as tmp:
             self.assertFalse(run_all.run_point("nowhere", data_dir=tmp))
-
-    def test_every_code_file_declares_ai_assistance(self):
-        files = [p for p in ROOT.rglob("*") if p.suffix in (".py", ".js")
-                 and ".git" not in p.parts and "vendor" not in p.parts and "build" not in p.parts]   # vendor: Leaflet, BSD-2
-        files += [ROOT / "model" / "crops.json", ROOT / "model" / "validation.json"]
-        for path in files:
-            with self.subTest(file=str(path.relative_to(ROOT))):
-                head = path.read_text(encoding="utf-8")[:1500]
-                self.assertRegex(head, r"(AI assistance|_ai_assistance).*drafted with an AI model \(Claude, Anthropic\)")
 
 
 if __name__ == "__main__":

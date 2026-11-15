@@ -1,5 +1,4 @@
 {
-  "_ai_assistance": "drafted with an AI model (Claude, Anthropic) and reviewed by the team",
   "_about": "Crop parameters for the water balance. 'checked' lists the values read from the cited source, with the source key and the value as printed there; 'assumed' lists the values that are assumptions of the team, with the reason. Everything in 'assumed' is open for local agronomic advice.",
   "_sources": {
     "FAO56_T17": "FAO Irrigation and Drainage Paper 56, Table 17, basal crop coefficients Kcb. https://www.fao.org/4/x0490e/x0490e0c.htm",

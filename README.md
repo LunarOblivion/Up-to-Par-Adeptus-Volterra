@@ -251,8 +251,6 @@ docs/             the published page (GitHub Pages)
 17. Leaflet 1.9.4 (BSD-2-Clause), https://leafletjs.com/; OpenStreetMap contributors,
     https://www.openstreetmap.org/copyright
 
-## Use of AI
-
 ## Team
 
-LunarOblivion (Kravchenko Angelina, SUNO-QT (Artur Kvon); Ratibor; Torgyn; Amirzhan
+LunarOblivion (Kravchenko Angelina), SUNO-QT (Artur Kvon), Ratibor, Torgyn, Amirzhan

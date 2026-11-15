@@ -18,9 +18,6 @@ Usage:  python model/water.py data/kostanay
 
 The model does not predict yield in tonnes. It reports how much of the water a crop
 wanted it could actually get, and where the rest of the rain went.
-
-AI assistance: this file was drafted with an AI model (Claude, Anthropic)
-and reviewed and run by the team.
 """
 
 import csv

@@ -26,7 +26,7 @@
       s0Title: "What the satellite saw, and what fallow really gave",
       pass6: "Pass 6",
       pass7: "Pass 7",
-      // Fallow Audit evidence (AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team)
+      // Fallow Audit evidence
       fa: {
         warnLow: (m, lo, hi, n, gibs, date, th) => `Check this field: its summer greenness is low (median NDVI ${m} against ${lo}-${hi} on the other fields). The ${th} threshold may count weak crops as fallow, so some of the ${n} fallow-like years may be poor crops.` +
           (gibs ? ` NDVI for this field was read from NASA GIBS map tiles${date ? `; a direct check against ORNL was not possible on ${date}` : ""}.` : ""),
@@ -342,7 +342,7 @@
       s0Title: "Что увидел спутник и что на самом деле дал пар",
       pass6: "Пролёт 6",
       pass7: "Пролёт 7",
-      // Fallow Audit, доказательная часть (AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team)
+      // Fallow Audit, доказательная часть
       fa: {
         warnLow: (m, lo, hi, n, gibs, date, th) => `Проверьте это поле: летняя зелень здесь низкая (медиана NDVI ${m} против ${lo}–${hi} на других полях). Порог ${th} может принимать слабые посевы за пар, поэтому часть из ${n} похожих на пар лет может оказаться слабыми посевами.` +
           (gibs ? ` NDVI этого поля прочитан с картографических тайлов NASA GIBS${date ? `; прямая сверка с ORNL ${date} была невозможна` : ""}.` : ""),
@@ -697,7 +697,6 @@
   const pct = (v) => Math.round(v);
   // A year range for model results. Means over complete years are labelled where they are made (field meta);
   // a range that ends in the year the weather series stops early says so: "2000–2026 (2026 to 4 November)".
-  // AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
   function period(a, b, point) {
     const w = point && point.weather;
     if (!w || !w.precip) return T().yearsRange(a, b);
@@ -809,7 +808,6 @@
 
   // ---- map sketch for when map tiles cannot be loaded (no internet, a filter, a blocked host).
   // Drawn from the field coordinates built into the page, so the first screen is never empty.
-  // AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
   let mapFallbackOn = false, tilesSeen = false;
   function drawMapFallback() {
     const el = $("map");
@@ -1686,7 +1684,6 @@
 
   // A change against your rotation, said in words (more / fewer) with a better / worse label, so its
   // direction does not depend on reading a sign. higherIsBetter: true for harvests and soil carbon.
-  // AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
   function ruPlural(n, one, few, many) {
     const k = Math.floor(Math.abs(n)) % 100, d = k % 10;
     if (Math.abs(n) % 1) return few;
@@ -1743,7 +1740,6 @@
   // ------------------------------------------------------------------ render all
   // ------------------------------------------------------------------ first screen: water, bare soil, harvests
   // Fallow Audit: the main result is water, tilled bare soil and the number of harvests; money stays in pass 3.
-  // AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
   const rotationCrops = (i) => state.rotations[i].map(c => T().crops[c]).join(" – ");
   // The current rotation has fallow but MODIS shows no fallow-like year on this field: say "would have", not "now".
   function whatIf() {

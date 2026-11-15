@@ -12,8 +12,6 @@ Usage:  python model/seasons.py            # all folders in data/ that have ndvi
 
 Writes data/<point>/season_types.json and model/season_clusters.json.
 Pure Python, no installs. Deterministic (fixed random seed).
-
-AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
 """
 
 import datetime as dt

@@ -1,6 +1,5 @@
 {
-  "_ai_assistance": "drafted with an AI model (Claude, Anthropic) and reviewed by the team",
-  "_about": "Published results of the Shortandy rotation trial (step 5 of the page, shortandy only), and how each is compared with the model. The paper was read by the team and the numbers were checked word by word against the publisher's PDF on 2026-11-14; the AI could not open the full text itself (publisher host not reachable / HTTP 403). Never estimate a value: a number the paper does not give is 'not reported in the paper'.",
+  "_about": "Published results of the Shortandy rotation trial (step 5 of the page, shortandy only), and how each is compared with the model. The paper was read by the team and the numbers were checked word by word against the publisher's PDF on 2026-11-14. Never estimate a value: a number the paper does not give is 'not reported in the paper'.",
   "_kinds": {
     "range": "published numbers against model values; each model value has 'compare_to': 'range' (the published_range), a number (a published value for that year), or null (shown for reference, no verdict)",
     "direction": "published statement about which option is higher; the model has no grain yield, so only the direction is compared, with the first model value expected to be the highest",

@@ -2,7 +2,6 @@
 The pipeline as a whole: the committed results in data/ are exactly what the code produces now,
 and every code file says that it was drafted with AI assistance.
 
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import pathlib

@@ -1,7 +1,5 @@
 """
 model/cover.py on synthetic MODIS and weather series where the right answer is known.
-
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import csv

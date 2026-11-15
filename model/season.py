@@ -2,7 +2,6 @@
 Definitions shared by model/cover.py (satellite record) and model/water.py (rotation model),
 so that "warm season", "strong wind" and "heavy rain" mean the same thing in both.
 
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 WARM_TEMP_C = 5.0      # centred 7-day mean air temperature that opens the warm season

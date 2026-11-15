@@ -21,8 +21,6 @@ All thresholds are in THRESHOLDS below. They are first guesses that were tuned o
 field near Shortandy and must be reviewed by an agronomist. NDVI sees green plants only:
 standing stubble and crop residue protect the soil too, but they are invisible here.
 
-AI assistance: this file was drafted with an AI model (Claude, Anthropic)
-and reviewed and run by the team.
 """
 
 import csv

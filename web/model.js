@@ -14,7 +14,6 @@
  * 0-100 cm, the fallow advantage at wheat sowing, and the summaries built from them in runAll().
  *
  * Up To Para version by LunarOblivion, merged with Fallow Audit.
- * AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
  */
 (function (root) {
   "use strict";

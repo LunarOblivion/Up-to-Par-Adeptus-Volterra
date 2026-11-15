@@ -8,8 +8,6 @@
  * Also contains JavaScript ports of the Python reference evapotranspiration
  * (model/water.py) and living-cover calendar (model/cover.py), so a live point gets
  * the same analysis as the prepared fields. tests/live_parity.js compares them.
- *
- * AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
  */
 (function (root) {
   "use strict";

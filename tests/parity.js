@@ -4,8 +4,6 @@
  *   python build_site.py                      # writes docs/data.json
  *   python model/water.py data/<point>        # writes data/<point>/water_balance.json
  *   node tests/parity.js
- *
- * AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
  */
 const fs = require("fs");
 const path = require("path");

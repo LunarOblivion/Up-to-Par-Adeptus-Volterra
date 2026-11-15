@@ -1,6 +1,5 @@
 /*
  * Fallow Audit page logic. Reads DATA (built by build_site.py) and runs web/model.js live.
- * AI assistance: drafted with an AI model (Claude, Anthropic), reviewed by the team.
  */
 (function () {
   "use strict";

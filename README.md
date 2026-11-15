@@ -252,9 +252,6 @@ docs/             the published page (GitHub Pages)
     https://www.openstreetmap.org/copyright
 
 ## Use of AI
-Model formulas, crop
-parameters and literature values were checked against the sources above; the Shortandy trial numbers were
-entered by the team from the publisher's PDF. No AI-generated images are used.
 
 ## Team
 

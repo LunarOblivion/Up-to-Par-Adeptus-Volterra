@@ -2,8 +2,6 @@
 """
 Build the web tool: one self-contained HTML file, docs/index.html.
 
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
-
   python build_site.py          # normally run by python run_all.py
 
 Reads, for every field in data_fetch/points.json that has been processed:

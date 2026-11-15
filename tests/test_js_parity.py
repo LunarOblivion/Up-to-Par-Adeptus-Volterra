@@ -3,7 +3,6 @@ The browser models against the Python models: tests/parity.js (web/model.js agai
 and tests/live_parity.js (web/live.js against reference evapotranspiration and model/cover.py).
 Both read build/data.json, which build_site.py writes. Needs Node; skipped without it.
 
-AI assistance: drafted with an AI model (Claude, Anthropic) and reviewed by the team.
 """
 
 import pathlib

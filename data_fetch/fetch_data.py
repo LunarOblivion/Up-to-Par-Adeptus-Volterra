@@ -17,9 +17,6 @@ Usage:
 Raw API responses are cached in data/<point>/raw/, so a re-run continues where it stopped.
 Standard library only, no installs needed.
 
-AI assistance: this file was drafted with an AI model (Claude, Anthropic)
-and reviewed and run by the team.
-
 Data sources:
   NASA POWER Project, NASA Langley Research Center  https://power.larc.nasa.gov/
   ORNL DAAC TESViS (MODIS/VIIRS subsets)            https://modis.ornl.gov/rst/ui/
